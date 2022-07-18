@@ -9,8 +9,13 @@ import loginBg from './login-bg.jpg';
 
 const Login = () => {
     const [login, setLogin] = React.useState(false);
-    const [notofic, setNotific] = React.useState(true);
+    const [notofic, setNotific] = React.useState(false);
     const [notificContent, setNotificContent] = React.useState(true);
+
+    const onClickLoginOrSign = (e) => {
+        e.preventDefault();
+        setLogin(!login);
+    }
 
     return (
         <section className={styles.login}>
@@ -24,12 +29,19 @@ const Login = () => {
                 }
             </div>
             <div className={styles.image}>
-                <h3 className={styles.title}>Sign Up</h3>
+                <h3 className={styles.title}>{login ? "Login" : "Sign Up"}</h3>
                 <img src={loginBg} alt="background login" />
             </div>
             <div className={styles.content}>
                 <div className={styles.inner}>
-                    {login ? <LoginForm /> : <SignUpForm />}
+                    {login ?
+                        <LoginForm
+                            onClickLoginOrSign={onClickLoginOrSign}
+                        /> :
+                        <SignUpForm
+                            onClickLoginOrSign={onClickLoginOrSign}
+                        />
+                    }
                 </div>
             </div>
         </section>

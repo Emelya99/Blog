@@ -1,7 +1,7 @@
 import styles from '../Form.module.scss';
 import TitleBox from '../../../TitleBox';
 
-const SignUpForm = () => {
+const SignUpForm = ({onClickLoginOrSign}) => {
     return (
         <>
             <div className={styles.titleBox}>
@@ -33,7 +33,7 @@ const SignUpForm = () => {
                     </button>
                     <p>
                         already have an account?<br/>
-                        <a href="/">log-in</a>
+                        <a href="/" onClick={onClickLoginOrSign}>log-in</a>
                     </p>
                 </div>
             </form>
