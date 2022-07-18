@@ -1,35 +1,26 @@
 import styles from '../Form.module.scss';
-import TitleBox from '../../../TitleBox';
 
-const LoginForm = ({onClickLoginOrSign}) => {
+const LoginForm = ({ onClickLoginOrSign }) => {
     return (
-        <>
-            <div className={styles.titleBox}>
-                <TitleBox
-                    title="Welcome"
-                    desc="Let’s log you in quickly"
-                />
+        <form>
+            <input
+                type="email"
+                placeholder="Enter your email"
+            />
+            <input
+                type="password"
+                placeholder="Enter your password"
+            />
+            <div className={styles.formBottom}>
+                <button>
+                    Login
+                </button>
+                <p>
+                    don't have an account?<br />
+                    <a href="/" onClick={onClickLoginOrSign}>sign-up</a>
+                </p>
             </div>
-            <form>
-                <input
-                    type="email"
-                    placeholder="Enter your email"
-                />
-                <input
-                    type="password"
-                    placeholder="Enter your password"
-                />
-                <div className={styles.formBottom}>
-                    <button>
-                        Login
-                    </button>
-                    <p>
-                        don't have an account?<br/>
-                        <a href="/" onClick={onClickLoginOrSign}>sign-up</a>
-                    </p>
-                </div>
-            </form>
-        </>
+        </form>
     )
 }
 

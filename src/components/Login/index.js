@@ -2,6 +2,7 @@ import React from 'react';
 import SignUpForm from './Form/SignUpForm';
 import LoginForm from './Form/LoginForm';
 import Notific from '../Notific';
+import TitleBox from '../TitleBox';
 
 import styles from './Login.module.scss';
 
@@ -34,6 +35,12 @@ const Login = () => {
             </div>
             <div className={styles.content}>
                 <div className={styles.inner}>
+                    <div className={styles.titleBox}>
+                        <TitleBox
+                            title="Welcome"
+                            desc={login ? "Let's log you in quickly" : "Let’s sign you up quickly" }
+                        />
+                    </div>
                     {login ?
                         <LoginForm
                             onClickLoginOrSign={onClickLoginOrSign}
