@@ -18,8 +18,16 @@ body {
     font-weight: 400;
 }
 
+main{
+    height: 100%;
+}
+
 h1,h2,h3,h4,h5,h6{
     font-family: 'DM Serif Display', serif;
+    margin: 0;
+}
+
+p{
     margin: 0;
 }
 
@@ -50,8 +58,8 @@ button{
     padding: 18px 48px;
 
     &:hover{
-        color: #FFF;
-        background: #000;
+        color: #000;
+        background: #FFF;
     }
 }
 
@@ -64,10 +72,11 @@ input, textarea{
     background: #272727;
     border: 1px solid #6EEB83;
     padding: 20px 30px;
+    margin-bottom: 22px;
 
     &:focus{
         outline: none;
-        border: 1px solid yellowgreen;
+        border: 1px solid #FFF;
     }
 
     &::placeholder{
@@ -83,10 +92,14 @@ textarea{
     height: 180px;
 }
 
+#root{
+    height: 100%;
+}
+
 .container {
-    max-width: 1366px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 0 43px;
+    height: 100%;
 }
 
 .title {
