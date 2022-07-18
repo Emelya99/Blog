@@ -43,3 +43,32 @@
     max-width: 600px;
     width: 100%;
 }
+
+@media(max-width:1024px){
+
+    .image{
+        display: none;
+    }
+
+    .content{
+        width: 100%;
+    }
+}
+
+@media(max-width:767px){
+
+    .content{
+        padding: 124px 40px;
+    }
+}
+
+@media(max-width:425px){
+
+    .login{
+        align-items: flex-start;
+    }
+
+    .content{
+        padding: 75px 15px;
+    }
+}

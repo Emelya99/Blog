@@ -1,11 +1,14 @@
-import styles from './Login.module.scss';
-
+import React from 'react';
 import SignUpForm from './Form/SignUpForm';
-// import LoginForm from './Form/LoginForm';
+import LoginForm from './Form/LoginForm';
+
+import styles from './Login.module.scss';
 
 import loginBg from './login-bg.jpg';
 
 const Login = () => {
+    const [login, setLogin] = React.useState(false);
+
     return (
         <section className={styles.login}>
             <div className={styles.image}>
@@ -14,8 +17,7 @@ const Login = () => {
             </div>
             <div className={styles.content}>
                 <div className={styles.inner}>
-                    <SignUpForm />
-                    {/* <LoginForm /> */}
+                    { login ? <LoginForm /> : <SignUpForm /> }
                 </div>
             </div>
         </section>

@@ -87,6 +87,13 @@ input, textarea{
     }
 }
 
+@media(max-width:767px){
+    
+    input, textarea{
+        padding: 20px;
+    }
+}
+
 textarea{
     resize: none;
     height: 180px;

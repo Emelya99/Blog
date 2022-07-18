@@ -17,3 +17,15 @@
         }
     }
 }
+
+@media(max-width:767px){
+
+    .formBottom{
+        flex-direction: column;
+        align-items: flex-start;
+
+        & button{
+            margin-bottom: 45px;
+        }
+    }
+}
