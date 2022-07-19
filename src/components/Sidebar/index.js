@@ -1,11 +1,18 @@
 import styles from './Sidebar.module.scss';
 import Icons from '../Icons';
 
-const Sidebar = ({ create, setCreate }) => {
+const Sidebar = ({ trending, setTrending, create, setCreate }) => {
+
+    const onClickTrending = (e) => {
+        setTrending(prevState => !prevState);
+        create && setCreate(!create);
+        e.preventDefault();
+    }
 
     const onClickCreatePost = (e) => {
+        setCreate(prevState => !prevState);
+        trending && setTrending(!trending);
         e.preventDefault();
-        setCreate(prevState => !prevState)
     }
 
     return (
@@ -21,10 +28,16 @@ const Sidebar = ({ create, setCreate }) => {
                     </a>
                 </div>
                 <div className={styles.trending}>
-                    <a href="/">
-                        <Icons name="trending" />
-                        trending
-                    </a>
+                    {trending ?
+                        <a href="/" onClick={onClickTrending}>
+                            <Icons name="home" />
+                            home
+                        </a> :
+                        <a href="/" onClick={onClickTrending}>
+                            <Icons name="trending" />
+                            trending
+                        </a>
+                    }
                 </div>
                 <div className={styles.create}>
                     {create ?

@@ -1,6 +1,6 @@
 import styles from './PostItem.module.scss';
 
-const Post = ({item}) => {
+const PostItem = ({item}) => {
     return (
         <div className={styles.inner}>
             <div className={styles.info}>
@@ -24,4 +24,4 @@ const Post = ({item}) => {
     );
 }
 
-export default Post;
+export default PostItem;
