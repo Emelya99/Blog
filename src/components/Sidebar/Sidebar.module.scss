@@ -19,6 +19,11 @@
     flex-direction: column;
     align-items: center;
     padding: 98px 12px 40px;
+
+    & svg{
+        width: 40px;
+        height: 40px;
+    }
 }
 
 .avatar {

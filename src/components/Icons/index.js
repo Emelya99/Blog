@@ -1,9 +1,15 @@
 const Icons = (props) => {
     switch (props.name) {
+        case 'home':
+            return (
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 42V18L24.1 6L40 18V42H28.3V27.75H19.65V42H8ZM11 39H16.65V24.75H31.3V39H37V19.5L24.1 9.75L11 19.5V39Z" fill="#6EEB83" />
+                </svg>
+            );
         case 'search':
             return (
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <mask id="mask0_17_195" style={{ maskType:"alpha"}} maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40">
+                    <mask id="mask0_17_195" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40">
                         <path d="M0 0H40V40H0V0Z" fill="#D9D9D9" />
                     </mask>
                     <g mask="url(#mask0_17_195)">
@@ -14,7 +20,7 @@ const Icons = (props) => {
         case 'trending':
             return (
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <mask id="mask0_2_99" style={{maskType:"alpha"}} maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40">
+                    <mask id="mask0_2_99" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40">
                         <rect width="40" height="40" fill="#D9D9D9" />
                     </mask>
                     <g mask="url(#mask0_2_99)">
@@ -25,7 +31,7 @@ const Icons = (props) => {
         case 'create':
             return (
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <mask id="mask0_2_120" style={{maskType:"alpha"}} maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40">
+                    <mask id="mask0_2_120" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40">
                         <rect width="40" height="40" fill="#D9D9D9" />
                     </mask>
                     <g mask="url(#mask0_2_120)">
