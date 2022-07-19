@@ -1,4 +1,4 @@
-import styles from './Post.module.scss';
+import styles from './PostItem.module.scss';
 
 const Post = ({item}) => {
     return (
