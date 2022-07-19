@@ -27,7 +27,6 @@ const Blog = () => {
       setTimeout(() => {
         setLoader(false)
       }, 300);
-      
   }, [trending])
 
   return (

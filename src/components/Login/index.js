@@ -14,8 +14,8 @@ const Login = () => {
     const [notificContent, setNotificContent] = React.useState(true);
 
     const onClickLoginOrSign = (e) => {
-        e.preventDefault();
         setLogin(!login);
+        e.preventDefault();
     }
 
     return (
