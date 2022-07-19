@@ -1,11 +1,14 @@
 import './index.scss';
-import Login from './components/Login';
+// import Login from './components/Login';
+import Blog from './components/Blog';
 
 const App = () => {
   return (
     <main>
       <div className='container'>
-        <Login />
+        <Blog />
+        {/* <Login /> */}
+        
       </div>
     </main>
   );

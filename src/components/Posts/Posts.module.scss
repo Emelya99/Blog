@@ -1,0 +1,28 @@
+.content{
+    padding: 78px 53px 60px;
+    margin-left: 95px;
+    width: 100%;
+    max-width: 1083px;
+    position: relative;
+    z-index: 1;
+}
+
+.title{
+    font-family: 'Lexend Deca';
+    font-weight: 400;
+    font-size: 20px;
+    display: inline-block;
+    position: relative;
+    margin: 0px 0px 33px 30px;
+
+    &::after{
+        content: '';
+        position: absolute;
+        top: -8px;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        width: 20px;
+        height: 4px;
+        background: #6EEB83;
+    }
+}
