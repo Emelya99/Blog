@@ -5,13 +5,15 @@ import Posts from '../Posts';
 import axios from 'axios';
 import CreatePost from '../CreatePost';
 
-const Blog = () => {
+const Blog = ({isAuth}) => {
   const [posts, setPosts] = React.useState([]);
   const [loader, setLoader] = React.useState(false);
+  const [profile, setProfile] = React.useState(false);
   const [create, setCreate] = React.useState(false);
   const [trending, setTrending] = React.useState(false);
   const [seach, setSearch] = React.useState(false);
   const [searchValue, setSearchValue] = React.useState("");
+
 
   React.useEffect(() => {
     axios.get('https://625187db2dc339451d2ef136.mockapi.io/post')
@@ -34,6 +36,8 @@ const Blog = () => {
   return (
     <div className={styles.wrapper}>
       <Sidebar
+        profile={profile}
+        setProfile={setProfile}
         trending={trending}
         setTrending={setTrending}
         create={create}
@@ -43,6 +47,7 @@ const Blog = () => {
         setSearch={setSearch}
         searchValue={searchValue}
         setSearchValue={setSearchValue}
+        isAuth={isAuth}
       />
       <div className={styles.content}>
         {create ?

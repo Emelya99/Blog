@@ -2,9 +2,14 @@ import styles from './Sidebar.module.scss';
 import Icons from '../Icons';
 
 const Sidebar = (
-    {   trending, setTrending, create, setCreate,
-        seach, setSearch, searchValue, setSearchValue }
+    { trending, setTrending, create, setCreate,
+        seach, setSearch, searchValue, setSearchValue,
+        isAuth, profile, setProfile }
 ) => {
+
+    const onClickProfile = () => {
+        setProfile(prevState => !prevState);
+    }
 
     const onClickTrending = (e) => {
         setTrending(prevState => !prevState);
@@ -33,8 +38,18 @@ const Sidebar = (
     return (
         <div className={styles.sidebarContainer}>
             <div className={styles.sidebar}>
-                <div className={styles.avatar}>
-                    <p>s</p>
+                <div
+                    className={styles.avatar}
+                    style={{ background: isAuth ? "#6EEB83" : "grey" }}
+                >
+                    <p style={{ color: isAuth ? "#000" : "#FFF" }} onClick={onClickProfile}>
+                        {isAuth ? "s" : "?"}
+                    </p>
+                    {profile &&
+                        <div className={styles.avatarBox}>
+                            <a href="/" >{isAuth ? "Logout" : "Login" }</a>
+                        </div>
+                    }
                 </div>
                 <div className={styles.search}>
                     <a href="/" onClick={onClickSearch}>
@@ -42,9 +57,7 @@ const Sidebar = (
                         search
                     </a>
                     {seach &&
-                        <div
-                            className={styles.searchBox}
-                            >
+                        <div className={styles.searchBox}>
                             <input
                                 type="text"
                                 placeholder="Search..."
@@ -66,18 +79,20 @@ const Sidebar = (
                         </a>
                     }
                 </div>
-                <div className={styles.create}>
-                    {create ?
-                        <a href="/" onClick={onClickCreatePost}>
-                            <Icons name="home" />
-                            home
-                        </a> :
-                        <a href="/" onClick={onClickCreatePost}>
-                            <Icons name="create" />
-                            create
-                        </a>
-                    }
-                </div>
+                {isAuth &&
+                    <div className={styles.create}>
+                        {create ?
+                            <a href="/" onClick={onClickCreatePost}>
+                                <Icons name="home" />
+                                home
+                            </a> :
+                            <a href="/" onClick={onClickCreatePost}>
+                                <Icons name="create" />
+                                create
+                            </a>
+                        }
+                    </div>
+                }
             </div>
         </div>
     );

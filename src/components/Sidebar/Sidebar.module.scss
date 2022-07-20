@@ -31,15 +31,30 @@
     width: 66px;
     height: 66px;
     border-radius: 50%;
-    background: #6EEB83;
     margin-bottom: 41px;
+    position: relative;
 
     & p {
         font-size: 32px;
         line-height: 66px;
-        color: #000000;
         text-transform: uppercase;
         text-align: center;
+        cursor: pointer;
+    }
+}
+
+.avatarBox{
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+    left: 96px;
+    width: 200px;
+    padding: 10px;
+    border: 5px solid #FFF;
+    background: #272727;
+
+    & a{
+        display: inline-block;
     }
 }
 
@@ -51,7 +66,8 @@
 
 .searchBox{
     position: absolute;
-    top: -3px;
+    top: 50%;
+    transform: translate(0%, -50%);
     left: 97px;
     width: 610px;
     background: #FFF;
