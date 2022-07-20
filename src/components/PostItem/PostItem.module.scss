@@ -48,6 +48,8 @@
     color: #6EEB83;
     margin-bottom: 19px;
     display: inline-block;
+    word-break: break-all;
+    padding-right: 130px;
 
     &:hover {
         color: #FFF;
@@ -76,6 +78,6 @@
 
 .views{
     position: absolute;
-    top: 8px;
+    top: 12px;
     right: 0;
 }
