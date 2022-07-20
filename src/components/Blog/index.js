@@ -10,6 +10,8 @@ const Blog = () => {
   const [loader, setLoader] = React.useState(false);
   const [create, setCreate] = React.useState(false);
   const [trending, setTrending] = React.useState(false);
+  const [seach, setSearch] = React.useState(false);
+  const [searchValue, setSearchValue] = React.useState("");
 
   React.useEffect(() => {
     axios.get('https://625187db2dc339451d2ef136.mockapi.io/post')
@@ -37,6 +39,10 @@ const Blog = () => {
         create={create}
         setCreate={setCreate}
         setPosts={setPosts}
+        seach={seach}
+        setSearch={setSearch}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
       />
       <div className={styles.content}>
         {create ?
@@ -46,6 +52,7 @@ const Blog = () => {
             posts={posts}
             trending={trending}
             loader={loader}
+            searchValue={searchValue}
           />
         }
       </div>

@@ -1,12 +1,19 @@
-.title{
+.header {
+    margin-bottom: 33px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
     font-family: 'Lexend Deca';
     font-weight: 400;
     font-size: 20px;
     display: inline-block;
     position: relative;
-    margin: 8px 0px 33px 40px;
+    margin: 8px 0px 0px 40px;
 
-    &::after{
+    &::after {
         content: '';
         position: absolute;
         top: -8px;
@@ -18,7 +25,25 @@
     }
 }
 
-.loader{
+.search {
+    width: 75%;
+
+    & p {
+        font-size: 24px;
+        line-height: 33px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        word-wrap: break-word;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    & span {
+        margin-left: 10px;
+    }
+}
+
+.loader {
     margin-top: 8px;
     margin-left: 40px;
 }

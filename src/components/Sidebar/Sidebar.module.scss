@@ -1,13 +1,10 @@
 .sidebarContainer{
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    margin: 0 auto;
-    max-width: 1280px;
-    width: 100%;
+    width: 95px;
     height: 100%;
-    z-index: 0;
+    z-index: 1;
 }
 
 .sidebar {
@@ -19,6 +16,10 @@
     flex-direction: column;
     align-items: center;
     padding: 98px 12px 40px;
+
+    & a{
+        display: block;
+    }
 
     & svg{
         width: 40px;
@@ -45,6 +46,20 @@
 .search {
     text-align: center;
     margin-bottom: 25px;
+    position: relative;
+}
+
+.searchBox{
+    position: absolute;
+    top: -3px;
+    left: 97px;
+    width: 610px;
+    background: #FFF;
+    padding: 5px;
+
+    & input{
+        margin: 0;
+    }
 }
 
 .trending {

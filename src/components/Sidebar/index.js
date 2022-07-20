@@ -1,7 +1,10 @@
 import styles from './Sidebar.module.scss';
 import Icons from '../Icons';
 
-const Sidebar = ({ trending, setTrending, create, setCreate }) => {
+const Sidebar = (
+    {   trending, setTrending, create, setCreate,
+        seach, setSearch, searchValue, setSearchValue }
+) => {
 
     const onClickTrending = (e) => {
         setTrending(prevState => !prevState);
@@ -12,7 +15,19 @@ const Sidebar = ({ trending, setTrending, create, setCreate }) => {
     const onClickCreatePost = (e) => {
         setCreate(prevState => !prevState);
         trending && setTrending(!trending);
+        seach && setSearch(!seach);
         e.preventDefault();
+    }
+
+    const onClickSearch = (e) => {
+        setSearch(!seach);
+        seach && setSearchValue('');
+        create && setCreate(!create);
+        e.preventDefault();
+    }
+
+    const onChangeInput = (e) => {
+        setSearchValue(e.target.value);
     }
 
     return (
@@ -22,10 +37,22 @@ const Sidebar = ({ trending, setTrending, create, setCreate }) => {
                     <p>s</p>
                 </div>
                 <div className={styles.search}>
-                    <a href="/">
+                    <a href="/" onClick={onClickSearch}>
                         <Icons name="search" />
                         search
                     </a>
+                    {seach &&
+                        <div
+                            className={styles.searchBox}
+                            >
+                            <input
+                                type="text"
+                                placeholder="Search..."
+                                value={searchValue}
+                                onChange={onChangeInput}
+                            />
+                        </div>
+                    }
                 </div>
                 <div className={styles.trending}>
                     {trending ?
