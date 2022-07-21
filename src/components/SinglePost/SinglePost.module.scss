@@ -7,12 +7,31 @@
     height: 100%;
     scrollbar-width: none;
 
-    &::-webkit-scrollbar{
+    &::-webkit-scrollbar {
         display: none;
     }
 
-    &::--webkit-scrollbar-thumb{
+    &::--webkit-scrollbar-thumb {
         display: none;
+    }
+}
+
+.btnBack {
+    display: inline-flex;
+    text-transform: uppercase;
+    padding: 18px 48px;
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: 600;
+    color: #000000;
+    background: #6EEB83;
+    position: fixed;
+    left: 50px;
+    top: 50px;
+
+    &:hover{
+        color: #000000;
+        background: #FFF;
     }
 }
 

@@ -58,7 +58,7 @@ const Sidebar = (
                     </p>
                     {profile &&
                         <div className={styles.avatarBox}>
-                            {isAuth ? "Logout" : <Link to="/login">Login</Link>}
+                            {isAuth ? <Link to="/">Logout</Link> : <Link to="/login">Login</Link>}
                         </div>
                     }
                 </div>
