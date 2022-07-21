@@ -6,7 +6,7 @@ import React from 'react';
 const Sidebar = (
     { trending, setTrending, create, setCreate,
         seach, setSearch, searchValue, setSearchValue,
-        isAuth, profile, setProfile }
+        isAuth, profile, setProfile, user }
 ) => {
 
     const onClickProfile = () => {
@@ -45,7 +45,7 @@ const Sidebar = (
                     style={{ background: isAuth ? "#6EEB83" : "grey" }}
                 >
                     <p style={{ color: isAuth ? "#000" : "#FFF" }} onClick={onClickProfile}>
-                        {isAuth ? "s" : "?"}
+                        {isAuth ? user.userName.substr(0, 1) : "?"}
                     </p>
                     {profile &&
                         <div className={styles.avatarBox}>

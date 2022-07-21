@@ -5,7 +5,7 @@ import Posts from '../Posts';
 import axios from 'axios';
 import CreatePost from '../CreatePost';
 
-const Blog = ({isAuth}) => {
+const Blog = ({isAuth, user}) => {
   const [posts, setPosts] = React.useState([]);
   const [loader, setLoader] = React.useState(false);
   const [profile, setProfile] = React.useState(false);
@@ -48,6 +48,7 @@ const Blog = ({isAuth}) => {
         searchValue={searchValue}
         setSearchValue={setSearchValue}
         isAuth={isAuth}
+        user={user}
       />
       <div className={styles.content}>
         {create ?
