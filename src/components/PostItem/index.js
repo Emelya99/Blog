@@ -1,6 +1,8 @@
+import React from 'react';
 import styles from './PostItem.module.scss';
 
-const PostItem = ({item}) => {
+const PostItem = ({ item }) => {
+
     return (
         <div className={styles.inner}>
             <div className={styles.info}>
@@ -12,7 +14,16 @@ const PostItem = ({item}) => {
             </div>
             <div className={styles.content}>
                 <a className={styles.title} href="/">{item.title}</a>
-                <p className={styles.text}>{item.text}</p>
+                <p className={styles.text}>
+                    {(item.text.length >= 444) ?
+                        <>
+                            {item.text.substr(0, 444)}
+                            <a href="/">...read more</a>
+                        </>
+                        :
+                        item.text
+                    }
+                </p>
                 <ul className={styles.tags}>
                     {item.tags.map((tag, index) => {
                         return <li key={index}>#{tag}</li>

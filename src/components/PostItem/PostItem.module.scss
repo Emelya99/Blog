@@ -1,8 +1,9 @@
 .inner {
     display: flex;
     position: relative;
+    min-height: 217px;
 
-    &:not(:last-child){
+    &:not(:last-child) {
         margin-bottom: 33px;
     }
 }
@@ -20,7 +21,7 @@
     text-align: right;
     margin-bottom: 14px;
 
-    & span{
+    & span {
         display: block;
     }
 }
@@ -39,6 +40,9 @@
 
 .content {
     padding-left: 17px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .title {
@@ -57,12 +61,25 @@
 }
 
 .text {
-    margin-bottom: 4px;
+    margin-bottom: auto;
+
+    & a {
+        font-weight: 200;
+        font-size: 20px;
+        line-height: 25px;
+        color: #6EEB83;
+        margin-left: 4px;
+
+        &:hover {
+            color: #FFF;
+        }
+    }
 }
 
 .tags {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 4px;
 
     & li {
         font-weight: 500;
@@ -76,7 +93,7 @@
     }
 }
 
-.views{
+.views {
     position: absolute;
     top: 12px;
     right: 0;
