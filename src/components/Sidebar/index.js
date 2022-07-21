@@ -9,6 +9,15 @@ const Sidebar = (
         isAuth, profile, setProfile, user }
 ) => {
 
+    const [profileColor, setProfileColor] = React.useState('');
+
+    React.useEffect(() => {
+        const colors = [ "#f44336", "#e91e63", "#2196f3", "#6EEB83", "#03a9f4", "#00bcd4", "#cddc39", "#ffc107", "#ff9800", "#ff5722" ];
+        const randomColor = colors[Math.floor(Math.random()*colors.length)];
+        setProfileColor(randomColor);
+    }, [])
+    
+
     const onClickProfile = () => {
         setProfile(prevState => !prevState);
     }
@@ -42,7 +51,7 @@ const Sidebar = (
             <div className={styles.sidebar}>
                 <div
                     className={styles.avatar}
-                    style={{ background: isAuth ? "#6EEB83" : "grey" }}
+                    style={{ background: isAuth ? profileColor : "grey" }}
                 >
                     <p style={{ color: isAuth ? "#000" : "#FFF" }} onClick={onClickProfile}>
                         {isAuth ? user.userName.substr(0, 1) : "?"}
