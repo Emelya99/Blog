@@ -1,3 +1,24 @@
-.wrapper{
-    background: green;
+.wrapper {
+    text-align: center;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
+
+.title {
+    font-weight: 400;
+    font-size: 180px;
+    line-height: 180px;
+    margin-bottom: 40px;
+}
+
+.text {
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 80px;
+}
+
+.btn {}
