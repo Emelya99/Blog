@@ -1,6 +1,7 @@
 import styles from './Sidebar.module.scss';
 import Icons from '../Icons';
 import { Link } from 'react-router-dom';
+import React from 'react';
 
 const Sidebar = (
     { trending, setTrending, create, setCreate,
@@ -48,7 +49,7 @@ const Sidebar = (
                     </p>
                     {profile &&
                         <div className={styles.avatarBox}>
-                            {isAuth ? "Logout" : <Link to="/login">Login</Link> }
+                            {isAuth ? "Logout" : <Link to="/login">Login</Link>}
                         </div>
                     }
                 </div>

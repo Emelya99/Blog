@@ -6,7 +6,7 @@ import SinglePost from './components/SinglePost';
 import { Routes, Route } from 'react-router-dom';
 
 const App = () => {
-  const [isAuth, setIsAuth] = React.useState(false);
+  const [isAuth, setIsAuth] = React.useState(true);
 
   return (
     <main>

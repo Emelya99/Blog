@@ -16,7 +16,7 @@ const Blog = ({isAuth}) => {
 
 
   React.useEffect(() => {
-    axios.get('https://625187db2dc339451d2ef136.mockapi.io/post')
+    axios.get('https://62d964d85d893b27b2e556a2.mockapi.io/posts')
       .then(response => {
         return setPosts(response.data);
       })
@@ -24,7 +24,7 @@ const Blog = ({isAuth}) => {
 
   React.useEffect(() => {
     setLoader(true);
-    axios.get('https://625187db2dc339451d2ef136.mockapi.io/post')
+    axios.get('https://62d964d85d893b27b2e556a2.mockapi.io/posts')
       .then(response => {
         return setPosts(response.data);
       })

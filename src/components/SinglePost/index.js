@@ -8,7 +8,7 @@ const SinglePost = () => {
   const [ post, setPost ] = React.useState(null);
 
   React.useEffect(() => {
-    axios.get(`https://625187db2dc339451d2ef136.mockapi.io/post/${id}`)
+    axios.get(`https://62d964d85d893b27b2e556a2.mockapi.io/posts/${id}`)
       .then(response => {
         return setPost(response.data);
       })
