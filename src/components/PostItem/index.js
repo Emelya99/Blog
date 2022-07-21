@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './PostItem.module.scss';
 
 const PostItem = ({ item }) => {
@@ -13,12 +14,12 @@ const PostItem = ({ item }) => {
                 <p className={styles.mail}>@{item.userName}</p>
             </div>
             <div className={styles.content}>
-                <a className={styles.title} href="/">{item.title}</a>
+                <Link className={styles.title} to={`/${item.id}`}>{item.title}</Link>
                 <p className={styles.text}>
                     {(item.text.length >= 444) ?
                         <>
                             {item.text.substr(0, 444)}
-                            <a href="/">...read more</a>
+                            <Link className={styles.title} to={`/${item.id}`}>...read more</Link>
                         </>
                         :
                         item.text

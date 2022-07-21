@@ -64,11 +64,12 @@
     margin-bottom: auto;
 
     & a {
+        font-family: 'Lexend Deca';
         font-weight: 200;
         font-size: 20px;
         line-height: 25px;
         color: #6EEB83;
-        margin-left: 4px;
+        margin: 0px 0px 0px 4px;
 
         &:hover {
             color: #FFF;
@@ -79,7 +80,7 @@
 .tags {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 4px;
+    margin-top: 16px;
 
     & li {
         font-weight: 500;
