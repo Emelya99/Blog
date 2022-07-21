@@ -3,6 +3,7 @@ import './index.scss';
 import Login from './components/Login';
 import Blog from './components/Blog';
 import SinglePost from './components/SinglePost';
+import ErrorPage from './components/ErrorPage';
 import { Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 
@@ -26,14 +27,15 @@ const App = () => {
     <main>
       <div className='container'>
         <Routes>
-          <Route path='/' element={
+          <Route path='*' element={<ErrorPage />} />
+          <Route path='/blog' element={
             <Blog
               isAuth={isAuth}
               setIsAuth={setIsAuth}
               user={user}
             />}
           />
-          <Route path='/login' element={<Login />} />
+          <Route path='/' element={<Login />} />
           <Route path='/:id' element={<SinglePost />} />
         </Routes>
       </div>
