@@ -10,7 +10,7 @@ import loginBg from './login-bg.jpg';
 
 const Login = () => {
     const [login, setLogin] = React.useState(false);
-    const [notofic, setNotific] = React.useState(false);
+    const [notific, setNotific] = React.useState(false);
     const [notificContent, setNotificContent] = React.useState(true);
 
     const onClickLoginOrSign = (e) => {
@@ -21,7 +21,7 @@ const Login = () => {
     return (
         <section className={styles.login}>
             <div className={styles.notificContainer}>
-                {notofic &&
+                {notific &&
                     <Notific
                         title={notificContent ? "SUCCESS" : "FAILED"}
                         text={notificContent ? "You can Log-in now." : "Sign-up failed. Please try again."}
