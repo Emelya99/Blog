@@ -1,17 +1,14 @@
 import React from 'react';
 import SignUpForm from './Form/SignUpForm';
 import LoginForm from './Form/LoginForm';
-import Notific from '../Notific';
 import TitleBox from '../TitleBox';
 
 import styles from './Login.module.scss';
 
 import loginBg from './login-bg.jpg';
 
-const Login = () => {
+const Login = ({setNotific, setNotificContent}) => {
     const [login, setLogin] = React.useState(false);
-    const [notific, setNotific] = React.useState(false);
-    const [notificContent, setNotificContent] = React.useState(true);
 
     const onClickLoginOrSign = (e) => {
         setLogin(!login);
@@ -21,13 +18,6 @@ const Login = () => {
     return (
         <section className={styles.login}>
             <div className={styles.notificContainer}>
-                {notific &&
-                    <Notific
-                        title={notificContent ? "SUCCESS" : "FAILED"}
-                        text={notificContent ? "You can Log-in now." : "Sign-up failed. Please try again."}
-                        color={notificContent ? "#6EEB83" : "#FF5E5B"}
-                    />
-                }
             </div>
             <div className={styles.image}>
                 <h3 className={styles.title}>{login ? "Login" : "Sign Up"}</h3>
@@ -38,7 +28,7 @@ const Login = () => {
                     <div className={styles.titleBox}>
                         <TitleBox
                             title="Welcome"
-                            desc={login ? "Let's log you in quickly" : "Let’s sign you up quickly" }
+                            desc={login ? "Let's log you in quickly" : "Let's sign you up quickly"}
                         />
                     </div>
                     {login ?
@@ -46,6 +36,8 @@ const Login = () => {
                             onClickLoginOrSign={onClickLoginOrSign}
                         /> :
                         <SignUpForm
+                            setNotific={setNotific}
+                            setNotificContent={setNotificContent}
                             onClickLoginOrSign={onClickLoginOrSign}
                         />
                     }
