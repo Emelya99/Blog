@@ -6,7 +6,7 @@ import React from 'react';
 const Sidebar = (
     { trending, setTrending, create, setCreate,
         seach, setSearch, searchValue, setSearchValue,
-        isAuth, profile, setProfile, user }
+        isAuth, profile, setProfile, user=[] }
 ) => {
 
     const [profileColor, setProfileColor] = React.useState('');

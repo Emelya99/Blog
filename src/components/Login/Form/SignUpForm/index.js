@@ -12,7 +12,7 @@ const SignUpForm = ({ onClickLoginOrSign, setNotific, setNotificContent }) => {
         name: Yup.string().required(),
         email: Yup.string().email().required(),
         password: Yup.string().required(),
-        confirmPassword: Yup.string().oneOf([Yup.ref('password'), null])
+        confirmPassword: Yup.string().oneOf([Yup.ref('password'), null]).required()
     })
 
     return (
@@ -24,20 +24,26 @@ const SignUpForm = ({ onClickLoginOrSign, setNotific, setNotificContent }) => {
                 confirmPassword: ''
             }}
             validateOnBlur
-            onSubmit={(values) => {
-                axios.post('https://62d964d85d893b27b2e556a2.mockapi.io/users', {
-                    userName: values.name,
-                    email: values.email,
-                    password: values.password,
-                    auth: true,
-                })
-                setNotific(true);
-                setNotificContent(true);
-                navigate("/blog");
+            onSubmit={async (values) => {
+                try {
+                    await axios.post('https://62d964d85d893b27b2e556a2.mockapi.io/users', {
+                        userName: values.name,
+                        email: values.email,
+                        password: values.password,
+                        auth: true,
+                    })
+                    setNotific(true);
+                    setNotificContent(true);
+                    navigate("/");
+                }
+                catch (error) {
+                    setNotific(true);
+                    setNotificContent(false);
+                }
             }}
             validationSchema={validationSchema}
         >
-            {({ values, handleSubmit, touched, errors }) => (
+            {({ values, handleSubmit, touched, errors  }) => (
                 <Form>
                     <Field
                         className={touched.name && errors.name && 'error'}

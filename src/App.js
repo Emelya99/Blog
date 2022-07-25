@@ -46,13 +46,13 @@ const App = () => {
           }
         </div>
         <Routes>
-          <Route path='/' element={
+          <Route path='/login' element={
             <Login
               setNotific={setNotific}
               setNotificContent={setNotificContent}
             />}
           />
-          <Route path='/blog' element={
+          <Route path='/' element={
             <Blog
               isAuth={isAuth}
               setIsAuth={setIsAuth}
