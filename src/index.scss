@@ -19,6 +19,13 @@ body {
     overflow: hidden;
 }
 
+@media(max-width:1024px) {
+
+    body {
+        overflow: visible;
+    }
+}
+
 main {
     height: 100%;
 }
@@ -89,7 +96,7 @@ button {
     background: #6EEB83;
     padding: 18px 48px;
 
-    &:hover{
+    &:hover {
         color: #000000;
         background: #FFF;
     }
@@ -120,7 +127,7 @@ textarea {
     }
 }
 
-.error{
+.error {
     border: 1px solid #FF5E5B;
 }
 

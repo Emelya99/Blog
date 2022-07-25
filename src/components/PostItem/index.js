@@ -19,7 +19,7 @@ const PostItem = ({ item }) => {
                     {(item.text.length >= 444) ?
                         <>
                             {item.text.substr(0, 444)}
-                            <Link className={styles.title} to={`/${item.id}`}>...read more</Link>
+                            <Link to={`/${item.id}`}>...read more</Link>
                         </>
                         :
                         item.text

@@ -1,10 +1,10 @@
-.wrapper{
+.wrapper {
     display: flex;
     position: relative;
     height: 100%;
 }
 
-.content{
+.content {
     padding: 70px 53px 60px;
     margin-left: 95px;
     width: 100%;
@@ -21,5 +21,13 @@
 
     &::-webkit-scrollbar-thumb {
         display: none;
+    }
+}
+
+@media(max-width:1024px) {
+
+    .content {
+        padding: 96px 23px 185px;
+        margin-left: 0px;
     }
 }
