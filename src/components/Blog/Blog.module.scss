@@ -31,3 +31,17 @@
         margin-left: 0px;
     }
 }
+
+@media(max-width:767px) {
+
+    .content {
+        padding: 81px 43px 145px;
+    }
+}
+
+@media(max-width:425px) {
+
+    .content {
+        padding: 81px 30px 145px;
+    }
+}

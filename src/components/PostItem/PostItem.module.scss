@@ -99,3 +99,82 @@
     top: 12px;
     right: 0;
 }
+
+@media(max-width:767px) {
+
+    .inner {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .info {
+        padding-top: 0px;
+        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        order: 2;
+    }
+
+    .mail {
+        transform: rotate(0deg) translate(0%, 0%);
+        width: auto;
+        max-width: 300px;
+    }
+
+    .data {
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 0;
+        text-transform: uppercase;
+
+        & span {
+            display: inline-block;
+            margin-right: 5px;
+        }
+    }
+
+    .content {
+        padding: 0;
+        margin-bottom: 22px;
+    }
+
+    .title {
+        padding-right: 0;
+        margin-bottom: 11px;
+        font-size: 24px;
+        line-height: 33px;
+    }
+
+    .text {
+        font-size: 16px;
+        line-height: 20px;
+
+        & a{
+            font-size: 16px;
+            line-height: 20px;
+        }
+    }
+
+    .tags {
+        margin-top: 8px;
+
+        & li {
+            font-size: 10px;
+            line-height: 12px;
+            padding: 10px 14px;
+            margin: 8px 8px 0px 0px;
+        }
+    }
+
+    .views {
+        display: none;
+    }
+}
+
+@media(max-width:425px) {
+    
+    .mail {
+        max-width: 175px;
+    }
+}
