@@ -24,26 +24,20 @@ const SignUpForm = ({ onClickLoginOrSign, setNotific, setNotificContent }) => {
                 confirmPassword: ''
             }}
             validateOnBlur
-            onSubmit={async (values) => {
-                try {
-                    await axios.post('https://62d964d85d893b27b2e556a2.mockapi.io/users', {
-                        userName: values.name,
-                        email: values.email,
-                        password: values.password,
-                        auth: true,
-                    })
-                    setNotific(true);
-                    setNotificContent(true);
-                    navigate("/");
-                }
-                catch (error) {
-                    setNotific(true);
-                    setNotificContent(false);
-                }
+            onSubmit={(values) => {
+                axios.post('https://62d964d85d893b27b2e556a2.mockapi.io/users', {
+                    userName: values.name,
+                    email: values.email,
+                    password: values.password,
+                    auth: true,
+                })
+                setNotific(true);
+                setNotificContent(true);
+                navigate("/");
             }}
             validationSchema={validationSchema}
         >
-            {({ values, handleSubmit, touched, errors  }) => (
+            {({ values, handleSubmit, touched, errors }) => (
                 <Form>
                     <Field
                         className={touched.name && errors.name && 'error'}
