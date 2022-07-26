@@ -14,12 +14,12 @@ const PostItem = ({ item }) => {
                 <p className={styles.mail}>@{item.userName}</p>
             </div>
             <div className={styles.content}>
-                <Link className={styles.title} to={`/${item.id}`}>{item.title}</Link>
+                <Link className={styles.title} to={`post/${item.id}`}>{item.title}</Link>
                 <p className={styles.text}>
                     {(item.text.length >= 444) ?
                         <>
                             {item.text.substr(0, 444)}
-                            <Link to={`/${item.id}`}>...read more</Link>
+                            <Link to={`post/${item.id}`}>...read more</Link>
                         </>
                         :
                         item.text

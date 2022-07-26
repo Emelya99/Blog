@@ -16,7 +16,7 @@ const App = () => {
   const [notificContent, setNotificContent] = React.useState(true);
 
   React.useEffect(() => {
-    axios.get(`https://62d964d85d893b27b2e556a2.mockapi.io/users/4`)
+    axios.get(`https://62d964d85d893b27b2e556a2.mockapi.io/users/3`)
       .then(response => {
         return setUser(response.data);
       })
@@ -59,7 +59,7 @@ const App = () => {
               user={user}
             />}
           />
-          <Route path='/:id' element={<SinglePost />} />
+          <Route path='/post/:id' element={<SinglePost />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
       </div>
