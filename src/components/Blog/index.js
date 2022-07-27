@@ -52,7 +52,9 @@ const Blog = ({isAuth, user}) => {
       />
       <div className={styles.content}>
         {create ?
-          <CreatePost />
+          <CreatePost 
+            user={user}
+          />
           :
           <Posts
             posts={posts}
