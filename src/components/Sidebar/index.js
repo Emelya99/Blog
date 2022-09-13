@@ -49,6 +49,9 @@ const Sidebar = (
     return (
         <div className={styles.sidebarContainer}>
             <div className={styles.sidebar}>
+                <Link className={styles.logo} to="/">
+                    <Icons name="logo" />
+                </Link>
                 <div
                     className={styles.avatar}
                     style={{ background: isAuth ? profileColor : "grey" }}
