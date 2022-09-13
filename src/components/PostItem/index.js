@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import styles from './PostItem.module.scss';
 
 const PostItem = ({ item }) => {
-
     return (
         <div className={styles.inner}>
             <div className={styles.info}>

@@ -1,19 +1,31 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from './SinglePost.module.scss';
 
 const SinglePost = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [post, setPost] = React.useState(null);
 
   React.useEffect(() => {
-    axios.get(`https://62d964d85d893b27b2e556a2.mockapi.io/posts/${id}`)
-      .then(response => {
-        return setPost(response.data);
-      })
-  }, [id])
 
+    const fetchPost = async () => {
+      try {
+       await axios.get(`https://62d964d85d893b27b2e556a2.mockapi.io/posts/${id}`)
+        .then(response => {
+          return setPost(response.data);
+        })
+      } 
+      catch {
+        alert("error")
+        navigate("/");
+      }
+    }
+    
+    fetchPost();
+
+  }, [id, navigate])
 
   return (
     <div className={styles.wrapper}>
