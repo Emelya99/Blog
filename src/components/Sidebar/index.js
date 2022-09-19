@@ -5,7 +5,7 @@ import React from 'react';
 
 const Sidebar = (
     { trending, setTrending, create, setCreate,
-        seach, setSearch, searchValue, setSearchValue,
+        search, setSearch, searchValue, setSearchValue,
         isAuth, profile, setProfile, user=[] }
 ) => {
 
@@ -31,13 +31,13 @@ const Sidebar = (
     const onClickCreatePost = (e) => {
         setCreate(prevState => !prevState);
         trending && setTrending(!trending);
-        seach && setSearch(!seach);
+        search && setSearch(!search);
         e.preventDefault();
     }
-
+    
     const onClickSearch = (e) => {
-        setSearch(!seach);
-        seach && setSearchValue('');
+        setSearch(!search);
+        search && setSearchValue('');
         create && setCreate(!create);
         e.preventDefault();
     }
@@ -70,7 +70,7 @@ const Sidebar = (
                         <Icons name="search" />
                         search
                     </a>
-                    {seach &&
+                    {search &&
                         <div className={styles.searchBox}>
                             <input
                                 type="text"

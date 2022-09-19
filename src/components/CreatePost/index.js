@@ -58,7 +58,6 @@ const CreatePost = ({user=[]}) => {
                             placeholder="Enter tags"
                             autoComplete="off"
                         />
-                        {console.log(values.tags.length)}
                         <Field
                             className={touched.text && errors.text && 'error'}
                             as="textarea"

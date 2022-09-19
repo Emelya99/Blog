@@ -11,7 +11,7 @@ const Blog = ({isAuth, user}) => {
   const [profile, setProfile] = React.useState(false);
   const [create, setCreate] = React.useState(false);
   const [trending, setTrending] = React.useState(false);
-  const [seach, setSearch] = React.useState(false);
+  const [search, setSearch] = React.useState(false);
   const [searchValue, setSearchValue] = React.useState("");
 
 
@@ -43,7 +43,7 @@ const Blog = ({isAuth, user}) => {
         create={create}
         setCreate={setCreate}
         setPosts={setPosts}
-        seach={seach}
+        search={search}
         setSearch={setSearch}
         searchValue={searchValue}
         setSearchValue={setSearchValue}
