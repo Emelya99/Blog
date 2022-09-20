@@ -9,7 +9,7 @@ const Posts = ({ posts = [], trending, loader, searchValue }) => {
   return (
     <>
       {loader ? (
-        <div className={styles.loader}>Loading...</div>
+        <div className={styles.loader}></div>
       ) : (
         <>
           <div className={styles.header}>

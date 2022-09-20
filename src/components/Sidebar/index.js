@@ -3,21 +3,10 @@ import Icons from '../Icons';
 import { Link } from 'react-router-dom';
 import React from 'react';
 
-const Sidebar = ({
-  trending,
-  setTrending,
-  create,
-  setCreate,
-  search,
-  setSearch,
-  searchValue,
-  setSearchValue,
-  isAuth,
-  profile,
-  setProfile,
-  user = [],
-}) => {
+const Sidebar = ({ trending, setTrending, searchValue, setSearchValue, isAuth, user = [] }) => {
   const [profileColor, setProfileColor] = React.useState('');
+  const [profile, setProfile] = React.useState(false);
+  const [search, setSearch] = React.useState(false);
 
   React.useEffect(() => {
     const colors = [
@@ -42,21 +31,12 @@ const Sidebar = ({
 
   const onClickTrending = (e) => {
     setTrending((prevState) => !prevState);
-    create && setCreate(!create);
-    e.preventDefault();
-  };
-
-  const onClickCreatePost = (e) => {
-    setCreate((prevState) => !prevState);
-    trending && setTrending(!trending);
-    search && setSearch(!search);
     e.preventDefault();
   };
 
   const onClickSearch = (e) => {
     setSearch(!search);
     search && setSearchValue('');
-    create && setCreate(!create);
     e.preventDefault();
   };
 
@@ -111,17 +91,10 @@ const Sidebar = ({
         </div>
         {isAuth && (
           <div className={styles.create}>
-            {create ? (
-              <a href="/" onClick={onClickCreatePost}>
-                <Icons name="home" />
-                home
-              </a>
-            ) : (
-              <a href="/" onClick={onClickCreatePost}>
-                <Icons name="create" />
-                create
-              </a>
-            )}
+            <a href="/">
+              <Icons name="create" />
+              create
+            </a>
           </div>
         )}
       </div>

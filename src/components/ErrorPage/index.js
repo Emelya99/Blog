@@ -5,7 +5,9 @@ const ErrorPage = () => {
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.title}>404</h1>
-      <p className={styles.text}>We couldn't find this page</p>
+      <p className={styles.text}>
+        Oops :( <br /> Looks like something went wrong. Try again later :)
+      </p>
       <Link className="btn" to="/">
         Back Home
       </Link>
