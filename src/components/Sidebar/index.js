@@ -25,16 +25,12 @@ const Sidebar = ({ trending, setTrending, searchValue, setSearchValue, isAuth, u
     setProfileColor(randomColor);
   }, []);
 
-  const onClickLogo = () => {
-    setTrending(false);
-  };
-
   const onClickProfile = () => {
     setProfile((prevState) => !prevState);
   };
 
   const onClickTrending = (e) => {
-    setTrending(true);
+    setTrending((prevState) => !prevState);
     e.preventDefault();
   };
 
@@ -51,7 +47,7 @@ const Sidebar = ({ trending, setTrending, searchValue, setSearchValue, isAuth, u
   return (
     <div className={styles.sidebarContainer}>
       <div className={styles.sidebar}>
-        <Link className={styles.logo} to="/" onClick={onClickLogo}>
+        <Link className={styles.logo} to="/">
           <Icons name="logo" />
         </Link>
         <div className={styles.avatar} style={{ background: isAuth ? profileColor : 'grey' }}>
@@ -81,10 +77,17 @@ const Sidebar = ({ trending, setTrending, searchValue, setSearchValue, isAuth, u
           )}
         </div>
         <div className={styles.trending}>
-          <a href="/" onClick={onClickTrending}>
-            <Icons name="trending" />
-            trending
-          </a>
+          {trending ? (
+            <a href="/" onClick={onClickTrending}>
+              <Icons name="fire" />
+              latest
+            </a>
+          ) : (
+            <a href="/" onClick={onClickTrending}>
+              <Icons name="trending" />
+              trending
+            </a>
+          )}
         </div>
         {isAuth && (
           <div className={styles.create}>
