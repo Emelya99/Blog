@@ -20,7 +20,6 @@ const Blog = ({ isAuth, user }) => {
 
   React.useEffect(() => {
     setLoader(true);
-    console.log('true');
     const fetchPosts = async () => {
       try {
         const { data } = await axios.get('https://62d964d85d893b27b2e556a2.mockapi.io/posts');
@@ -33,17 +32,7 @@ const Blog = ({ isAuth, user }) => {
       }
     };
     fetchPosts();
-  }, [navigate]);
-
-  // React.useEffect(() => {
-  //   setLoader(true);
-  //   axios.get('https://62d964d85d893b27b2e556a2.mockapi.io/posts').then((response) => {
-  //     return setPosts(response.data);
-  //   });
-  //   setTimeout(() => {
-  //     setLoader(false);
-  //   }, 300);
-  // }, [trending]);
+  }, [navigate, trending]);
 
   if (loader) {
     return <Loader />;
@@ -61,7 +50,7 @@ const Blog = ({ isAuth, user }) => {
         user={user}
       />
       <div className={styles.content}>
-        <Posts posts={posts} trending={trending} loader={loader} searchValue={searchValue} />
+        <Posts posts={posts} trending={trending} searchValue={searchValue} />
       </div>
     </div>
   );
