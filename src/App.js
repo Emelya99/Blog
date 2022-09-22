@@ -3,7 +3,7 @@ import './index.scss';
 import styles from './App.module.scss';
 import Login from './components/Login';
 import Blog from './components/Blog';
-import SinglePostPage from './pages/SinglePostPage';
+import SinglePost from './components/SinglePost';
 import ErrorPage from './components/ErrorPage';
 import Notific from './components/Notific';
 import { Routes, Route } from 'react-router-dom';
@@ -50,7 +50,7 @@ const App = () => {
             element={<Login setNotific={setNotific} setNotificContent={setNotificContent} />}
           />
           <Route path="/" element={<Blog isAuth={isAuth} setIsAuth={setIsAuth} user={user} />} />
-          <Route path="/post/:id" element={<SinglePostPage />} />
+          <Route path="/post/:id" element={<SinglePost />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>

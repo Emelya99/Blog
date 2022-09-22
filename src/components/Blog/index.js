@@ -43,7 +43,6 @@ const Blog = ({ isAuth, user }) => {
       <Sidebar
         trending={trending}
         setTrending={setTrending}
-        setPosts={setPosts}
         searchValue={searchValue}
         setSearchValue={setSearchValue}
         isAuth={isAuth}
