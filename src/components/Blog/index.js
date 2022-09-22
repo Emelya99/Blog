@@ -7,14 +7,16 @@ import Loader from '../Loader';
 import styles from './Blog.module.scss';
 
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { blogSelector } from '../../redux/slices/blogSlices';
 
 import axios from 'axios';
 
 const Blog = ({ isAuth, user }) => {
   const [posts, setPosts] = React.useState([]);
   const [loader, setLoader] = React.useState(false);
-  const [trending, setTrending] = React.useState(false);
-  const [searchValue, setSearchValue] = React.useState('');
+
+  const { trending } = useSelector(blogSelector);
 
   const navigate = useNavigate();
 
@@ -40,16 +42,9 @@ const Blog = ({ isAuth, user }) => {
 
   return (
     <div className={styles.wrapper}>
-      <Sidebar
-        trending={trending}
-        setTrending={setTrending}
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-        isAuth={isAuth}
-        user={user}
-      />
+      <Sidebar isAuth={isAuth} user={user} />
       <div className={styles.content}>
-        <Posts posts={posts} trending={trending} searchValue={searchValue} />
+        <Posts posts={posts} />
       </div>
     </div>
   );

@@ -1,7 +1,12 @@
 import styles from './Posts.module.scss';
 import PostItem from '../PostItem';
 
-const Posts = ({ posts = [], trending, searchValue }) => {
+import { useSelector } from 'react-redux';
+import { blogSelector } from '../../redux/slices/blogSlices';
+
+const Posts = ({ posts = [] }) => {
+  const { trending, searchValue } = useSelector(blogSelector);
+
   function byField(field) {
     return (a, b) => (a[field] > b[field] ? 1 : -1);
   }

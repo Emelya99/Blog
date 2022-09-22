@@ -1,12 +1,21 @@
-import styles from './Sidebar.module.scss';
-import Icons from '../Icons';
-import { Link } from 'react-router-dom';
 import React from 'react';
 
-const Sidebar = ({ trending, setTrending, searchValue, setSearchValue, isAuth, user = [] }) => {
+import styles from './Sidebar.module.scss';
+
+import Icons from '../Icons';
+
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { blogSelector, setTrending, setSearchValue } from '../../redux/slices/blogSlices';
+
+const Sidebar = ({ isAuth, user = [] }) => {
   const [profileColor, setProfileColor] = React.useState('');
   const [profile, setProfile] = React.useState(false);
   const [search, setSearch] = React.useState(false);
+
+  const dispatch = useDispatch();
+
+  const { trending, searchValue } = useSelector(blogSelector);
 
   React.useEffect(() => {
     const colors = [
@@ -30,18 +39,22 @@ const Sidebar = ({ trending, setTrending, searchValue, setSearchValue, isAuth, u
   };
 
   const onClickTrending = (e) => {
-    setTrending((prevState) => !prevState);
+    dispatch(setTrending(!trending));
     e.preventDefault();
   };
 
   const onClickSearch = (e) => {
     setSearch(!search);
-    search && setSearchValue('');
     e.preventDefault();
   };
 
   const onChangeInput = (e) => {
-    setSearchValue(e.target.value);
+    dispatch(setSearchValue(e.target.value));
+  };
+
+  const onClickRemoveSearch = () => {
+    dispatch(setSearchValue(''));
+    setSearch(!search);
   };
 
   return (
@@ -73,6 +86,9 @@ const Sidebar = ({ trending, setTrending, searchValue, setSearchValue, isAuth, u
                 value={searchValue}
                 onChange={onChangeInput}
               />
+              <div className={styles.closeSearchBox} onClick={onClickRemoveSearch}>
+                <Icons name="close" />
+              </div>
             </div>
           )}
         </div>

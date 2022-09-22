@@ -19,14 +19,11 @@ const SinglePost = () => {
       try {
         const { data } = await axios.get(`https://62d964d85d893b27b2e556a2.mockapi.io/posts/${id}`);
         let views = data.views + 1;
-        console.log('1');
-        await axios.put(`https://62d964d85d893b27b2e556a2.mockapi.io/posts/${id}`, {
+        axios.put(`https://62d964d85d893b27b2e556a2.mockapi.io/posts/${id}`, {
           views: views,
         });
-        console.log('2');
         setPost(data);
         setLoader(false);
-        console.log('3');
       } catch {
         setLoader(false);
         alert('error');

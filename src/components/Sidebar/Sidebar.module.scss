@@ -83,6 +83,27 @@
 
     & input {
         margin: 0;
+        padding: 20px 60px 20px 30px;
+    }
+}
+
+.closeSearchBox {
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+    right: 20px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+
+    & svg {
+        fill: #FFF;
+        width: 24px;
+        height: 24px;
+        
+        &:hover {
+            fill: #6EEB83;
+        }
     }
 }
 
@@ -203,6 +224,10 @@
     .searchBox {
         width: 250px;
         top: -82px;
+
+        & input {
+            padding: 20px 50px 20px 20px;
+        }
     }
 
     .search {
