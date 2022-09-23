@@ -4,8 +4,10 @@ import PostItem from '../PostItem';
 import { useSelector } from 'react-redux';
 import { blogSelector } from '../../redux/slices/blogSlices';
 
-const Posts = ({ posts = [] }) => {
-  const { trending, searchValue } = useSelector(blogSelector);
+const Posts = () => {
+  const { trending, searchValue, posts = [] } = useSelector(blogSelector);
+
+  const trendingArr = [...posts];
 
   function byField(field) {
     return (a, b) => (a[field] > b[field] ? 1 : -1);
@@ -24,7 +26,7 @@ const Posts = ({ posts = [] }) => {
         </div>
       </div>
       {trending
-        ? posts
+        ? trendingArr
             .sort(byField('views'))
             .slice(0)
             .reverse()

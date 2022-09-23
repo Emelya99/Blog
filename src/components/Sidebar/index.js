@@ -8,12 +8,13 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { blogSelector, setTrending, setSearchValue } from '../../redux/slices/blogSlices';
 
-const Sidebar = ({ isAuth, user = [] }) => {
+const Sidebar = () => {
   const [profileColor, setProfileColor] = React.useState('');
   const [profile, setProfile] = React.useState(false);
   const [search, setSearch] = React.useState(false);
 
   const dispatch = useDispatch();
+  const isAuth = false;
 
   const { trending, searchValue } = useSelector(blogSelector);
 
@@ -65,7 +66,8 @@ const Sidebar = ({ isAuth, user = [] }) => {
         </Link>
         <div className={styles.avatar} style={{ background: isAuth ? profileColor : 'grey' }}>
           <p style={{ color: isAuth ? '#000' : '#FFF' }} onClick={onClickProfile}>
-            {isAuth ? user.userName.substr(0, 1) : '?'}
+            {isAuth ? 'D' : '?'}
+            {/* user.userName.substr(0, 1) */}
           </p>
           {profile && (
             <div className={styles.avatarBox}>
@@ -105,14 +107,12 @@ const Sidebar = ({ isAuth, user = [] }) => {
             </a>
           )}
         </div>
-        {isAuth && (
-          <div className={styles.create}>
-            <a href="/">
-              <Icons name="create" />
-              create
-            </a>
-          </div>
-        )}
+        <div className={styles.create}>
+          <a href="/">
+            <Icons name="create" />
+            create
+          </a>
+        </div>
       </div>
     </div>
   );

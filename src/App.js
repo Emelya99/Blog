@@ -7,23 +7,10 @@ import SinglePost from './components/SinglePost';
 import ErrorPage from './components/ErrorPage';
 import Notific from './components/Notific';
 import { Routes, Route } from 'react-router-dom';
-import axios from 'axios';
 
 const App = () => {
-  const [user, setUser] = React.useState(null);
-  const [isAuth, setIsAuth] = React.useState(false);
   const [notific, setNotific] = React.useState(false);
   const [notificContent, setNotificContent] = React.useState(true);
-
-  React.useEffect(() => {
-    axios.get(`https://62d964d85d893b27b2e556a2.mockapi.io/users/3`).then((response) => {
-      return setUser(response.data);
-    });
-  }, []);
-
-  React.useEffect(() => {
-    user && setIsAuth(user.auth);
-  }, [user]);
 
   React.useEffect(() => {
     notific &&
@@ -49,7 +36,7 @@ const App = () => {
             path="/login"
             element={<Login setNotific={setNotific} setNotificContent={setNotificContent} />}
           />
-          <Route path="/" element={<Blog isAuth={isAuth} setIsAuth={setIsAuth} user={user} />} />
+          <Route path="/" element={<Blog />} />
           <Route path="/post/:id" element={<SinglePost />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
