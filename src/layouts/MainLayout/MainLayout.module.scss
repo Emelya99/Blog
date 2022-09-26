@@ -4,12 +4,11 @@
 }
 
 .content {
-    padding: 70px 53px 60px;
-    margin-left: 95px;
-    width: 100%;
-    max-width: 1083px;
-    position: relative;
-    z-index: 0;
+    padding: 70px 0 60px;
+    max-width: 977px;
+    position: absolute;
+    top: 0;
+    left: 148px;
 }
 
 @media(max-width:1024px) {

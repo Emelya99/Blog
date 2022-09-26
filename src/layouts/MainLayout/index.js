@@ -6,10 +6,10 @@ import styles from './MainLayout.module.scss';
 const MainLayout = () => {
   return (
     <div className={styles.wrapper}>
-      <Sidebar />
       <div className={styles.content}>
         <Outlet />
       </div>
+      <Sidebar />
     </div>
   );
 };
