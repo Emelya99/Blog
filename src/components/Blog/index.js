@@ -1,32 +1,26 @@
 import React from 'react';
 
-import Sidebar from '../Sidebar';
 import Posts from '../Posts';
-import Loader from '../Loader';
-
-import styles from './Blog.module.scss';
 
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setPosts } from '../../redux/slices/blogSlices';
+import { setPosts, setLoader } from '../../redux/slices/blogSlices';
 
 import axios from 'axios';
 
 const Blog = () => {
-  const [loader, setLoader] = React.useState(false);
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    setLoader(true);
+    // dispatch(setLoader(true));
     const fetchPosts = async () => {
       try {
         const { data } = await axios.get('https://62d964d85d893b27b2e556a2.mockapi.io/posts');
         dispatch(setPosts(data));
-        setLoader(false);
+        // dispatch(setLoader(false));
       } catch {
-        setLoader(false);
+        // dispatch(setLoader(false));
         alert('Oh no... Try later:)');
         navigate('/*');
       }
@@ -34,18 +28,7 @@ const Blog = () => {
     fetchPosts();
   }, [navigate, dispatch]);
 
-  if (loader) {
-    return <Loader />;
-  }
-
-  return (
-    <div className={styles.wrapper}>
-      <Sidebar />
-      <div className={styles.content}>
-        <Posts />
-      </div>
-    </div>
-  );
+  return <Posts />;
 };
 
 export default Blog;

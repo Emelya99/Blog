@@ -7,13 +7,19 @@ import Icons from '../Icons';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { blogSelector, setTrending, setSearchValue } from '../../redux/slices/blogSlices';
+// import { useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
   const [profileColor, setProfileColor] = React.useState('');
   const [profile, setProfile] = React.useState(false);
   const [search, setSearch] = React.useState(false);
 
+  const inputRef = React.useRef();
+  const profileRef = React.useRef();
+  const searchRef = React.useRef();
+
   const dispatch = useDispatch();
+  // const navigate = useNavigate();
   const isAuth = false;
 
   const { trending, searchValue } = useSelector(blogSelector);
@@ -35,13 +41,29 @@ const Sidebar = () => {
     setProfileColor(randomColor);
   }, []);
 
+  React.useEffect(() => {
+    const onClickOutside = (e) => {
+      if (!e.path.includes(profileRef.current)) {
+        setProfile(false);
+      }
+      if (!e.path.includes(searchRef.current)) {
+        setSearch(false);
+      }
+    };
+
+    document.body.addEventListener('click', onClickOutside);
+
+    return () => {
+      document.body.removeEventListener('click', onClickOutside);
+    };
+  });
+
   const onClickProfile = () => {
     setProfile((prevState) => !prevState);
   };
 
-  const onClickTrending = (e) => {
+  const onClickTrending = () => {
     dispatch(setTrending(!trending));
-    e.preventDefault();
   };
 
   const onClickSearch = (e) => {
@@ -55,7 +77,7 @@ const Sidebar = () => {
 
   const onClickRemoveSearch = () => {
     dispatch(setSearchValue(''));
-    setSearch(!search);
+    inputRef.current.focus();
   };
 
   return (
@@ -64,7 +86,10 @@ const Sidebar = () => {
         <Link className={styles.logo} to="/">
           <Icons name="logo" />
         </Link>
-        <div className={styles.avatar} style={{ background: isAuth ? profileColor : 'grey' }}>
+        <div
+          className={styles.avatar}
+          style={{ background: isAuth ? profileColor : 'grey' }}
+          ref={profileRef}>
           <p style={{ color: isAuth ? '#000' : '#FFF' }} onClick={onClickProfile}>
             {isAuth ? 'D' : '?'}
             {/* user.userName.substr(0, 1) */}
@@ -75,11 +100,11 @@ const Sidebar = () => {
             </div>
           )}
         </div>
-        <div className={styles.search}>
-          <a href="/" onClick={onClickSearch}>
+        <div className={styles.search} ref={searchRef}>
+          <Link to="/" onClick={onClickSearch}>
             <Icons name="search" />
             search
-          </a>
+          </Link>
           {search && (
             <div className={styles.searchBox}>
               <input
@@ -87,6 +112,7 @@ const Sidebar = () => {
                 placeholder="Search..."
                 value={searchValue}
                 onChange={onChangeInput}
+                ref={inputRef}
               />
               <div className={styles.closeSearchBox} onClick={onClickRemoveSearch}>
                 <Icons name="close" />
@@ -95,23 +121,25 @@ const Sidebar = () => {
           )}
         </div>
         <div className={styles.trending}>
-          {trending ? (
-            <a href="/" onClick={onClickTrending}>
-              <Icons name="fire" />
-              latest
-            </a>
-          ) : (
-            <a href="/" onClick={onClickTrending}>
-              <Icons name="trending" />
-              trending
-            </a>
-          )}
+          <Link to="/" onClick={onClickTrending}>
+            {trending ? (
+              <>
+                <Icons name="fire" />
+                latest
+              </>
+            ) : (
+              <>
+                <Icons name="trending" />
+                trending
+              </>
+            )}
+          </Link>
         </div>
         <div className={styles.create}>
-          <a href="/">
+          <Link to="/create-post">
             <Icons name="create" />
             create
-          </a>
+          </Link>
         </div>
       </div>
     </div>
