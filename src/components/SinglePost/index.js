@@ -6,12 +6,18 @@ import styles from './SinglePost.module.scss';
 import Loader from '../Loader';
 
 import { Link, useParams, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSinglePost } from '../../redux/slices/singlePostSlice';
 
 const SinglePost = () => {
-  const [post, setPost] = React.useState(null);
   const [loader, setLoader] = React.useState(false);
   const { id } = useParams();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const { title, userName, dataDay, dataMonth, dataYear, text } = useSelector(
+    (state) => state.singlePost.post,
+  );
 
   React.useEffect(() => {
     setLoader(true);
@@ -22,7 +28,7 @@ const SinglePost = () => {
         axios.put(`https://62d964d85d893b27b2e556a2.mockapi.io/posts/${id}`, {
           views: views,
         });
-        setPost(data);
+        dispatch(setSinglePost(data));
         setLoader(false);
       } catch {
         setLoader(false);
@@ -30,35 +36,34 @@ const SinglePost = () => {
         navigate('/');
       }
     };
-
     fetchPost();
-  }, [id, navigate]);
+  }, [id, navigate, dispatch]);
 
   if (loader) {
     return <Loader />;
   }
 
   return (
-    <div className={styles.wrapper}>
-      {post && (
-        <>
+    <>
+      {title && (
+        <div className={styles.wrapper}>
           <Link className={styles.btnBack} to="/">
             Back
           </Link>
-          <h1 className={styles.title}>{post.title}</h1>
+          <h1 className={styles.title}>{title}</h1>
           <div className={styles.info}>
-            <p>written by {post.userName}</p>
+            <p>written by {userName}</p>
             <p>
-              on {post.dataDay} {post.dataMonth} {post.dataYear}
+              on {dataDay} {dataMonth} {dataYear}
             </p>
           </div>
           <p className={styles.text}>
-            <span>{post.text.substr(0, 1)}</span>
-            {post.text.substr(1)}
+            <span>{text.substr(0, 1)}</span>
+            {text.substr(1)}
           </p>
-        </>
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

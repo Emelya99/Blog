@@ -14,7 +14,7 @@ import Loader from './components/Loader';
 
 import { Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { blogSelector } from './redux/slices/blogSlices';
+import { blogSelector } from './redux/slices/blogSlice';
 
 const App = () => {
   const [notific, setNotific] = React.useState(false);

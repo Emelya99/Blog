@@ -5,7 +5,7 @@ import Loader from '../Loader';
 
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setPosts } from '../../redux/slices/blogSlices';
+import { setPosts } from '../../redux/slices/blogSlice';
 
 import axios from 'axios';
 

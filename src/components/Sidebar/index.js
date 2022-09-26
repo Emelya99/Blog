@@ -6,7 +6,7 @@ import Icons from '../Icons';
 
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { blogSelector, setTrending, setSearchValue } from '../../redux/slices/blogSlices';
+import { blogSelector, setTrending, setSearchValue } from '../../redux/slices/blogSlice';
 // import { useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {

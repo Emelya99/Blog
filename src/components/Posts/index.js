@@ -2,7 +2,7 @@ import styles from './Posts.module.scss';
 import PostItem from '../PostItem';
 
 import { useSelector } from 'react-redux';
-import { blogSelector } from '../../redux/slices/blogSlices';
+import { blogSelector } from '../../redux/slices/blogSlice';
 
 const Posts = () => {
   const { trending, searchValue, posts = [] } = useSelector(blogSelector);
