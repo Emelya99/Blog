@@ -7,7 +7,6 @@ import Icons from '../Icons';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { blogSelector, setTrending, setSearchValue } from '../../redux/slices/blogSlice';
-// import { useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
   const [profileColor, setProfileColor] = React.useState('');
@@ -19,7 +18,6 @@ const Sidebar = () => {
   const searchRef = React.useRef();
 
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
   const isAuth = false;
 
   const { trending, searchValue } = useSelector(blogSelector);
@@ -66,9 +64,8 @@ const Sidebar = () => {
     dispatch(setTrending(!trending));
   };
 
-  const onClickSearch = (e) => {
+  const onClickSearch = () => {
     setSearch(!search);
-    e.preventDefault();
   };
 
   const onChangeInput = (e) => {
@@ -96,7 +93,7 @@ const Sidebar = () => {
           </p>
           {profile && (
             <div className={styles.avatarBox}>
-              {isAuth ? <Link to="/">Logout</Link> : <Link to="/login">Login</Link>}
+              <Link to="/">{isAuth ? 'Logout' : 'Login'}</Link>
             </div>
           )}
         </div>

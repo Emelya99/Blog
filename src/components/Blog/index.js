@@ -20,11 +20,11 @@ const Blog = () => {
       try {
         const { data } = await axios.get('https://62d964d85d893b27b2e556a2.mockapi.io/posts');
         dispatch(setPosts(data));
-        setLoader(false);
       } catch {
-        setLoader(false);
         alert('Oh no... Try later:)');
         navigate('/*');
+      } finally {
+        setLoader(false);
       }
     };
     fetchPosts();

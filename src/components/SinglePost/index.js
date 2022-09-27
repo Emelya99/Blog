@@ -29,11 +29,11 @@ const SinglePost = () => {
           views: views,
         });
         dispatch(setSinglePost(data));
-        setLoader(false);
       } catch {
-        setLoader(false);
         alert('error');
         navigate('/');
+      } finally {
+        setLoader(false);
       }
     };
     fetchPost();
