@@ -1,7 +1,14 @@
-.wrapper{
-    padding: 0 40px;
-}
+.accept {
+    padding: 100px 0;
+    text-align: center;
+    background: #272727;
 
-.form{
-    margin-top: 44px;
+    & h2 {
+        margin-bottom: 30px;
+    }
+
+    & p {
+        font-size: 24px;
+        line-height: 30px;
+    }
 }
