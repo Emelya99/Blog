@@ -93,7 +93,7 @@ const Sidebar = () => {
           </p>
           {profile && (
             <div className={styles.avatarBox}>
-              <Link to="/">{isAuth ? 'Logout' : 'Login'}</Link>
+              <Link to="/auth/login">{isAuth ? 'Logout' : 'Login'}</Link>
             </div>
           )}
         </div>

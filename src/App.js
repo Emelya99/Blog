@@ -3,12 +3,15 @@ import React from 'react';
 import './index.scss';
 import styles from './App.module.scss';
 
-import Login from './components/Login';
+import MainLayout from './layouts/MainLayout';
+import AuthLayout from './layouts/AuthLayout';
+
+import LoginForm from './components/Auth/LoginForm';
+import SignUpForm from './components/Auth/SignUpForm';
 import Blog from './components/Blog';
 import SinglePost from './components/SinglePost';
 import ErrorPage from './components/ErrorPage';
 import Notific from './components/Notific';
-import MainLayout from './layouts/MainLayout';
 import CreatePost from './components/CreatePost';
 import Loader from './components/Loader';
 
@@ -50,10 +53,10 @@ const App = () => {
             <Route path="/" element={<Blog />} />
             <Route path="/create-post" element={<CreatePost />} />
           </Route>
-          <Route
-            path="/login"
-            element={<Login setNotific={setNotific} setNotificContent={setNotificContent} />}
-          />
+          <Route path="/auth" element={<AuthLayout />}>
+            <Route path="/auth/login" element={<LoginForm />} />
+            <Route path="/auth/register" element={<SignUpForm />} />
+          </Route>
           <Route path="/post/:id" element={<SinglePost />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>

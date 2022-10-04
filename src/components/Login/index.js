@@ -1,5 +1,5 @@
 import React from 'react';
-import SignUpForm from './Form/SignUpForm';
+import SignUpForm from '../Auth/SignUpForm';
 import LoginForm from './Form/LoginForm';
 import TitleBox from '../TitleBox';
 

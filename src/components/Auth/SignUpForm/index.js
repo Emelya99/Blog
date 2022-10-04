@@ -1,10 +1,11 @@
-import styles from '../Form.module.scss';
+import styles from '../Auth.module.scss';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-const SignUpForm = ({ onClickLoginOrSign, setNotific, setNotificContent }) => {
+const SignUpForm = () => {
   const navigate = useNavigate();
 
   const validationSchema = Yup.object().shape({
@@ -32,8 +33,6 @@ const SignUpForm = ({ onClickLoginOrSign, setNotific, setNotificContent }) => {
           password: values.password,
           auth: true,
         });
-        setNotific(true);
-        setNotificContent(true);
         navigate('/');
       }}
       validationSchema={validationSchema}>
@@ -78,9 +77,7 @@ const SignUpForm = ({ onClickLoginOrSign, setNotific, setNotificContent }) => {
             <p>
               already have an account?
               <br />
-              <a href="/" onClick={onClickLoginOrSign}>
-                log-in
-              </a>
+              <Link to="/auth/login">log-in</Link>
             </p>
           </div>
         </Form>

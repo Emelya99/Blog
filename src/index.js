@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'normalize.css';
 import './index.scss';
+import './firebase';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { store } from './redux/store';
