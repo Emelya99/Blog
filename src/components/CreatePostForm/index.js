@@ -68,7 +68,7 @@ const CreatePostForm = ({ setFormAccept }) => {
               placeholder="Enter tags"
               autoComplete="off"
             />
-            <p className={styles.desc}>Prompt : write tags with spaces</p>
+            <p className={styles.desc}>Prompt : write tags with spaces and without #</p>
             <Field
               className={touched.text && errors.text && 'error'}
               as="textarea"
