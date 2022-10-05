@@ -19,6 +19,8 @@ import { Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { blogSelector } from './redux/slices/blogSlice';
 
+export const NotificContext = React.createContext(false);
+
 const App = () => {
   const [notific, setNotific] = React.useState(false);
   const [notificContent, setNotificContent] = React.useState(true);
@@ -37,31 +39,33 @@ const App = () => {
   }
 
   return (
-    <main>
-      <div className="container">
-        <div className={styles.notificContainer}>
-          {notific && (
-            <Notific
-              title={notificContent ? 'SUCCESS' : 'FAILED'}
-              text={notificContent ? 'You can Log-in now.' : 'Sign-up failed. Please try again.'}
-              color={notificContent ? '#6EEB83' : '#FF5E5B'}
-            />
-          )}
+    <NotificContext.Provider value={{ setNotific, setNotificContent }}>
+      <main>
+        <div className="container">
+          <div className={styles.notificContainer}>
+            {notific && (
+              <Notific
+                title={notificContent ? 'SUCCESS' : 'FAILED'}
+                text={notificContent ? 'You can Log-in now.' : 'Sign-up failed. Please try again.'}
+                color={notificContent ? '#6EEB83' : '#FF5E5B'}
+              />
+            )}
+          </div>
+          <Routes>
+            <Route path="/" element={<MainLayout />}>
+              <Route path="/" element={<Blog />} />
+              <Route path="/create-post" element={<CreatePost />} />
+            </Route>
+            <Route path="/auth" element={<AuthLayout />}>
+              <Route path="/auth/login" element={<LoginForm />} />
+              <Route path="/auth/register" element={<SignUpForm />} />
+            </Route>
+            <Route path="/post/:id" element={<SinglePost />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
         </div>
-        <Routes>
-          <Route path="/" element={<MainLayout />}>
-            <Route path="/" element={<Blog />} />
-            <Route path="/create-post" element={<CreatePost />} />
-          </Route>
-          <Route path="/auth" element={<AuthLayout />}>
-            <Route path="/auth/login" element={<LoginForm />} />
-            <Route path="/auth/register" element={<SignUpForm />} />
-          </Route>
-          <Route path="/post/:id" element={<SinglePost />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
-      </div>
-    </main>
+      </main>
+    </NotificContext.Provider>
   );
 };
 

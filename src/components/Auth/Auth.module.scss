@@ -1,7 +1,23 @@
+.inputBox {
+    margin-bottom: 45px;
+    position: relative;
+
+    & p {
+        position: absolute;
+        top: 67px;
+        left: 0;
+        color: #FF5E5B;
+        font-size: 18px;
+        line-height: 22px;
+    }
+}
+
 .formBottom{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: 15px;
+    margin-bottom: 45px;
 
     & a{
         font-size: 20px;
@@ -11,6 +27,15 @@
         &:hover{
             color: #FFFFFF;
         }
+    }
+}
+
+.dataError {
+    min-height: 60px;
+
+    & p {
+        border: 2px solid #FF5E5B;
+        padding: 15px;
     }
 }
 

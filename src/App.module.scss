@@ -1,7 +1,8 @@
 .notificContainer{
-    position: absolute;
+    position: fixed;
     top: 44px;
     right: 73px;
+    z-index: 10;
 }
 
 @media(max-width:1024px){

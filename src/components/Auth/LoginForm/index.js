@@ -1,17 +1,17 @@
 import styles from '../Auth.module.scss';
 
 import { Link } from 'react-router-dom';
-// import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-// import { useDispatch } from 'react-redux';
-// import { setUser } from '../../../redux/slices/userSlice';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../../redux/slices/userSlice';
 
 const LoginForm = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // const handleLogin = (email, password) => {
-  //   const auth = getAuth();
-  //   signInWithEmailAndPassword(auth, email, password).then(console.log()).catch(console.error);
-  // };
+  const handleLogin = (email, password) => {
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password).then(console.log).catch(console.error);
+  };
 
   return (
     <form>

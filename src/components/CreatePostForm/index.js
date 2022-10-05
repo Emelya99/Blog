@@ -3,8 +3,11 @@ import TitleBox from '../TitleBox';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import { useAuth } from '../../hooks/use-auth';
 
 const CreatePostForm = ({ setFormAccept }) => {
+  const { name } = useAuth();
+
   const validationSchema = Yup.object().shape({
     title: Yup.string().required(),
     text: Yup.string().required(),
@@ -25,7 +28,6 @@ const CreatePostForm = ({ setFormAccept }) => {
     'December',
   ];
   const month = months[new Date().getMonth()];
-  const userName = 'Artur';
 
   return (
     <div className={styles.wrapper}>
@@ -45,7 +47,7 @@ const CreatePostForm = ({ setFormAccept }) => {
             dataDay: new Date().getDate(),
             dataMonth: month,
             dataYear: new Date().getUTCFullYear(),
-            userName: userName,
+            userName: name,
             views: 0,
           });
           setFormAccept(true);

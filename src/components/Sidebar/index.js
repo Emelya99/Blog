@@ -7,6 +7,8 @@ import Icons from '../Icons';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { blogSelector, setTrending, setSearchValue } from '../../redux/slices/blogSlice';
+import { removeUser } from '../../redux/slices/userSlice';
+import { useAuth } from '../../hooks/use-auth';
 
 const Sidebar = () => {
   const [profileColor, setProfileColor] = React.useState('');
@@ -18,7 +20,7 @@ const Sidebar = () => {
   const searchRef = React.useRef();
 
   const dispatch = useDispatch();
-  const isAuth = false;
+  const { isAuth, name } = useAuth();
 
   const { trending, searchValue } = useSelector(blogSelector);
 
@@ -88,12 +90,17 @@ const Sidebar = () => {
           style={{ background: isAuth ? profileColor : 'grey' }}
           ref={profileRef}>
           <p style={{ color: isAuth ? '#000' : '#FFF' }} onClick={onClickProfile}>
-            {isAuth ? 'D' : '?'}
-            {/* user.userName.substr(0, 1) */}
+            {isAuth ? name.substr(0, 1) : '?'}
           </p>
           {profile && (
             <div className={styles.avatarBox}>
-              <Link to="/auth/login">{isAuth ? 'Logout' : 'Login'}</Link>
+              {isAuth ? (
+                <Link to="/" onClick={() => dispatch(removeUser())}>
+                  Logout
+                </Link>
+              ) : (
+                <Link to="/auth/login">Login</Link>
+              )}
             </div>
           )}
         </div>
