@@ -40,10 +40,11 @@ const CreatePostForm = ({ setFormAccept }) => {
         }}
         validateOnBlur
         onSubmit={(values) => {
+          const tags = values.tags === [] ? values.tags.split(' ') : [];
           axios.post('https://62d964d85d893b27b2e556a2.mockapi.io/posts', {
             title: values.title,
             text: values.text,
-            tags: values.tags.split(' '),
+            tags: tags,
             dataDay: new Date().getDate(),
             dataMonth: month,
             dataYear: new Date().getUTCFullYear(),
@@ -63,6 +64,7 @@ const CreatePostForm = ({ setFormAccept }) => {
               placeholder="Enter title"
               autoComplete="off"
             />
+
             <Field
               type="text"
               name="tags"

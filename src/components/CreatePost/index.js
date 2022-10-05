@@ -13,7 +13,7 @@ const CreatePost = () => {
     if (!isAuth) {
       navigate('/auth/login');
     }
-  }, [navigate]);
+  }, [navigate, isAuth]);
 
   return (
     <>
