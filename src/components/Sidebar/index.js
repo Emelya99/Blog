@@ -3,17 +3,20 @@ import React from 'react';
 import styles from './Sidebar.module.scss';
 
 import Icons from '../Icons';
+import Loader from '../Loader';
 
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { blogSelector, setTrending, setSearchValue } from '../../redux/slices/blogSlice';
-import { removeUser } from '../../redux/slices/userSlice';
+import { setUser, removeUser } from '../../redux/slices/userSlice';
 import { useAuth } from '../../hooks/use-auth';
+import { auth } from '../../firebase';
 
 const Sidebar = () => {
   const [profileColor, setProfileColor] = React.useState('');
   const [profile, setProfile] = React.useState(false);
   const [search, setSearch] = React.useState(false);
+  const [loader, setLoader] = React.useState(false);
 
   const inputRef = React.useRef();
   const profileRef = React.useRef();
@@ -23,6 +26,23 @@ const Sidebar = () => {
   const { isAuth, name } = useAuth();
 
   const { trending, searchValue } = useSelector(blogSelector);
+
+  React.useEffect(() => {
+    setLoader(true);
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        dispatch(
+          setUser({
+            name: user.displayName,
+            email: user.email,
+            token: user.accessToken,
+            id: user.uid,
+          }),
+        );
+      }
+    });
+    setLoader(false);
+  }, [dispatch]);
 
   React.useEffect(() => {
     const colors = [
@@ -58,6 +78,11 @@ const Sidebar = () => {
     };
   });
 
+  const onClickLogout = () => {
+    auth.signOut();
+    dispatch(removeUser());
+  };
+
   const onClickProfile = () => {
     setProfile((prevState) => !prevState);
   };
@@ -79,6 +104,10 @@ const Sidebar = () => {
     inputRef.current.focus();
   };
 
+  if (loader) {
+    return <Loader />;
+  }
+
   return (
     <div className={styles.sidebarContainer}>
       <div className={styles.sidebar}>
@@ -95,7 +124,7 @@ const Sidebar = () => {
           {profile && (
             <div className={styles.avatarBox}>
               {isAuth ? (
-                <Link to="/" onClick={() => dispatch(removeUser())}>
+                <Link to="/" onClick={onClickLogout}>
                   Logout
                 </Link>
               ) : (
