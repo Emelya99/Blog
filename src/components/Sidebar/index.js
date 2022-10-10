@@ -147,9 +147,11 @@ const Sidebar = () => {
                 onChange={onChangeInput}
                 ref={inputRef}
               />
-              <div className={styles.closeSearchBox} onClick={onClickRemoveSearch}>
-                <Icons name="close" />
-              </div>
+              {searchValue.length >= 1 && (
+                <div className={styles.closeSearchBox} onClick={onClickRemoveSearch}>
+                  <Icons name="close" />
+                </div>
+              )}
             </div>
           )}
         </div>
