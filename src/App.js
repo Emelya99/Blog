@@ -14,6 +14,7 @@ import ErrorPage from './components/ErrorPage';
 import Notific from './components/Notific';
 import CreatePost from './components/CreatePost';
 import Loader from './components/Loader';
+import ScrollTop from './components/ScrollTop';
 
 import { Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -65,6 +66,7 @@ const App = () => {
           </Routes>
         </div>
       </main>
+      <ScrollTop />
     </NotificContext.Provider>
   );
 };

@@ -1,0 +1,23 @@
+.scrollTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    z-index: 20;
+    border-radius: 50%;
+    background: #6EEB83;
+    cursor: pointer;
+
+    &:hover {
+        background: #FFF;
+    }
+
+    & svg {
+        fill: #272727;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

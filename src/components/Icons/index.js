@@ -143,6 +143,12 @@ const Icons = (props) => {
           <path d="M1.84615 24L0 22.1538L10.1538 12L0 1.84615L1.84615 0L12 10.1538L22.1538 0L24 1.84615L13.8462 12L24 22.1538L22.1538 24L12 13.8462L1.84615 24Z" />
         </svg>
       );
+    case 'arrowTop':
+      return (
+        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10.875 24V4.275L1.575 13.575L0 12L12 0L24 12L22.425 13.575L13.125 4.275V24H10.875Z" />
+        </svg>
+      );
     default:
       return <svg></svg>;
   }
