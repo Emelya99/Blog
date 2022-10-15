@@ -39,14 +39,30 @@
     }
 }
 
-@media(max-width:767px){
-
+@media(max-width: 1024px) {
+    
     .formBottom{
         flex-direction: column;
         align-items: flex-start;
+        margin-bottom: 30px;
 
         & button{
-            margin-bottom: 45px;
+            margin-bottom: 30px;
         }
+    }
+
+    .inputBox {
+        margin-bottom: 30px;
+    
+        & p {
+            top: 54px;
+            font-size: 14px;
+            line-height: 18px;
+        }
+    }
+
+    .dataError p {
+        font-size: 14px;
+        line-height: 18px;
     }
 }

@@ -51,16 +51,26 @@
 
 @media(max-width:1024px){
 
+    .auth {
+        height: auto;
+        max-height: none;
+    }
+
     .image{
         display: none;
     }
 
     .content{
         width: 100%;
+        padding: 60px 30px;
     }
 }
 
 @media(max-width:767px){
+
+    .titleBox{
+        margin-bottom: 30px;
+    }
 
     .auth{
         display: block;

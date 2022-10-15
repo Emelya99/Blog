@@ -132,11 +132,10 @@ textarea {
     border: 1px solid #FF5E5B;
 }
 
-@media(max-width:767px) {
+@media(max-width: 1024px) {
 
-    input,
-    textarea {
-        padding: 20px;
+    input, textarea {
+        padding: 15px 20px;
     }
 }
 
