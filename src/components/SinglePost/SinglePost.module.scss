@@ -88,7 +88,7 @@
 
     .wrapper {
         max-width: 100%;
-        padding: 81px 43px;
+        padding: 81px 15px;
     }
 
     .btnBack {
@@ -113,6 +113,11 @@
     .text {
         font-size: 16px;
         line-height: 20px;
+
+        & span {
+            font-size: 48px;
+            line-height: 64px;
+        }
     }
 }
 
@@ -120,7 +125,7 @@
 
     .wrapper {
         max-width: 100%;
-        padding: 90px 30px;
+        padding: 90px 15px;
     }
 
     .title {

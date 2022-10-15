@@ -120,7 +120,7 @@
     .sidebarContainer {
         position: fixed;
         top: auto;
-        bottom: 40px;
+        bottom: 23px;
         width: 100%;
         height: auto;
         padding: 0 23px;
@@ -130,9 +130,10 @@
         background: #272727;
         border-width: 1px 1px 1px 1px;
         height: auto;
-        padding: 30px 50px 25px 72px;
+        padding: 30px;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
         width: 100%;
 
         & a {
@@ -177,6 +178,10 @@
     .create {
         width: 130px;
     }
+
+    .logo {
+        margin: 0;
+    }
 }
 
 @media(max-width:767px) {
@@ -197,6 +202,14 @@
             margin: 0;
             width: 40px;
             height: 40px;
+        }
+    }
+
+    .closeSearchBox {
+    
+        & svg {
+            width: 24px;
+            height: 24px;
         }
     }
 
@@ -246,10 +259,12 @@
 
     .sidebarContainer {
         padding: 0 15px;
+        bottom: 15px;
+        z-index: 25;
     }
 
     .sidebar {
-        padding: 15px 25px;
+        padding: 15px;
     }
 
     .avatarBox {
@@ -259,7 +274,7 @@
 
     .searchBox {
         transform: translate(0%, 0%);
-        left: -92px;
+        left: -125px;
         width: 290px;
     }
 }
