@@ -19,7 +19,7 @@ const Blog = () => {
     const fetchPosts = async () => {
       try {
         const { data } = await axios.get('https://62d964d85d893b27b2e556a2.mockapi.io/posts');
-        dispatch(setPosts(data));
+        dispatch(setPosts(data.items));
       } catch {
         alert('Oh no... Try later:)');
         navigate('/*');

@@ -124,7 +124,7 @@ const Sidebar = () => {
           {profile && (
             <div className={styles.avatarBox}>
               {isAuth ? (
-                <Link to="/" onClick={onClickLogout}>
+                <Link to="/auth/login" onClick={onClickLogout}>
                   Logout
                 </Link>
               ) : (
