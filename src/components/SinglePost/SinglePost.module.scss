@@ -2,18 +2,6 @@
     max-width: 936px;
     margin: 0 auto;
     padding: 61px 30px;
-    overflow: hidden;
-    overflow-y: scroll;
-    height: 100%;
-    scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-        display: none;
-    }
-
-    &::--webkit-scrollbar-thumb {
-        display: none;
-    }
 }
 
 .btnBack {
